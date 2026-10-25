@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realistic 3D Rubik's Cube</title>
+    <link rel="stylesheet" href="fm.css">
+</head>
+<body>
+
+    <div class="dashboard">
+        <h1>RUBIK'S CUBE</h1>
+        <div class="timer" id="timerDisplay">00:00</div>
+    </div>
+    
+    <div class="scene">
+        <div class="container" id="cubeContainer"></div>
+    </div>
+
+    <div class="controls">
+        <button onclick="triggerMove('U')">U</button>
+        <button onclick="triggerMove('D')">D</button>
+        <button onclick="triggerMove('L')">L</button>
+        <button onclick="triggerMove('R')">R</button>
+        <button onclick="triggerMove('F')">F</button>
+        <button onclick="triggerMove('B')">B</button>
+        <button onclick="triggerMove('u')">U'</button>
+        <button onclick="triggerMove('d')">D'</button>
+        <button onclick="triggerMove('l')">L'</button>
+        <button onclick="triggerMove('r')">R'</button>
+        <button onclick="triggerMove('f')">F'</button>
+        <button onclick="triggerMove('b')">B'</button>
+        <button onclick="scramble()" style="grid-column: span 2; background-color: #0288d1; border: none;">Scramble</button>
+        <button onclick="autoSolve()" style="grid-column: span 2; background-color: #34c759; border: none;">Solve</button>
+        <button onclick="resetCube()" style="grid-column: span 2; background-color: #c62828; border: none;">Reset</button>
+    </div>
+
+    <div class="instructions">
+        • Drag background to spin camera view.<br>
+        • Keyboards: lowercases (u, d, l, r, f, b) for CW, Shift for CCW.<br>
+        • Press "Solve" to see the engine undo your moves organically!
+    </div>
+
+    <div class="victory-screen" id="victoryOverlay">
+        <div class="victory-box">
+            <h2>SOLVED! 🎉</h2>
+            <p>Your Time: <span id="finalTime">00:00</span></p>
+            <button onclick="closeVictory()">Play Again</button>
+        </div>
+    </div>
+
+    <script src="fm.js"></script>
+</body>
+</html>

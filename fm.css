@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.dashboard {
+    text-align: center;
+    margin-bottom: 20px;
+}
+h1 {
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 24px;
+}
+.timer {
+    font-size: 32px;
+    font-family: monospace;
+    color: #ffd600;
+    margin-top: 5px;
+}
+.scene {
+    width: 300px;
+    height: 300px;
+    perspective: 1200px;
+}
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+.cubelet {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    left: 100px;
+    top: 100px;
+}
+.face {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    border: 4px solid #000;
+    border-radius: 8px;
+    backface-visibility: hidden;
+}
+.face.F { transform: rotateY(0deg) translateZ(50px); background-color: #b71c1c; }
+.face.B { transform: rotateY(180deg) translateZ(50px); background-color: #e65100; }
+.face.L { transform: rotateY(-90deg) translateZ(50px); background-color: #1b5e20; }
+.face.R { transform: rotateY(90deg) translateZ(50px); background-color: #0d47a1; }
+.face.U { transform: rotateX(90deg) translateZ(50px); background-color: #eeeeee; }
+.face.D { transform: rotateX(-90deg) translateZ(50px); background-color: #ffd600; }
+
+.controls {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    max-width: 500px;
+    width: 90%;
+}
+button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    padding: 12px 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+button:hover {
+    background-color: #555;
+}
+.instructions {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    line-height: 1.5;
+}
+.victory-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 100;
+}
+.victory-screen.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.victory-box {
+    background-color: #222;
+    border: 2px solid #34c759;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: scale(0.8);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.victory-screen.show .victory-box {
+    transform: scale(1);
+}
+.victory-box h2 {
+    color: #34c759;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+.victory-box p {
+    font-size: 20px;
+    color: #ddd;
+    margin-bottom: 25px;
+}
+.victory-box span {
+    color: #ffd600;
+    font-weight: bold;
+    font-family: monospace;
+}
+.victory-box button {
+    background-color: #34c759;
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+}
+.victory-box button:hover {
+    background-color: #28a745;
+}
